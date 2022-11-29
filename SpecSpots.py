@@ -2,6 +2,7 @@ import numpy as np
 
 class SpecSpotsDefault:
     def set_values(mushroom):
+        # Spots
         mushroom.has_spots = np.random.choice([True, False])
         mushroom.spot_width = np.random.choice([5, 10, 20])
         mushroom.spot_height = np.random.choice([5, 10, 20])

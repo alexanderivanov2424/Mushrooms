@@ -9,6 +9,7 @@ from mushroom import Mushroom
 
 
 window_size = (600, 600)
+SCALE = 1 #scale the mushrooms to better fit the window if window size is changed from 600x600
 
 pygame.init()
 screen = pygame.display.set_mode(window_size, RESIZABLE)
@@ -24,17 +25,16 @@ background = np.random.choice([background1, background2, background3]).convert_a
 def render():
     screen.fill((255, 255, 255))
 
-    scale = 1
     mushroom_generation_size = 600 # This shouldn't change
     mushroom_screen = pygame.Surface((mushroom_generation_size, mushroom_generation_size))
 
     mushroom_screen.blit(background, (mushroom_generation_size/2 - background.get_size()[0]/2, mushroom_generation_size - background.get_size()[1]))
 
     mushroom.draw(mushroom_screen)
-    mushroom_screen = pygame.transform.scale(mushroom_screen, (mushroom_generation_size * scale, mushroom_generation_size * scale))
+    mushroom_screen = pygame.transform.scale(mushroom_screen, (mushroom_generation_size * SCALE, mushroom_generation_size * SCALE))
 
     w, h = screen.get_size()
-    screen.blit(mushroom_screen, (w/2 - scale * mushroom_generation_size / 2, h - mushroom_generation_size * scale))
+    screen.blit(mushroom_screen, (w/2 - SCALE * mushroom_generation_size / 2, h - mushroom_generation_size * SCALE))
 
     pygame.display.update()
 

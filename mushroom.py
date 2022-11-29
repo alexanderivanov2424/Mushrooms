@@ -9,6 +9,7 @@ from SpecGills import *
 from SpecRings import *
 from SpecSpots import *
 from SpecColor import *
+from SpecOverride import *
 
 def left_vector(v):
     return v @ np.array([[0, -1], [1, 0]])
@@ -107,6 +108,8 @@ class Mushroom:
         self.RINGS.set_values(self)
         self.SPOTS.set_values(self)
         self.COLOR.set_values(self)
+        # Apply overrides if any
+        SpecOverride.set_values(self)
 
     def generate_colors(self):
         self.COLOR.set_values(self)
