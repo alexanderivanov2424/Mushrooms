@@ -55,5 +55,7 @@ while True:
                 mushroom = Mushroom()
             if event.key == pygame.K_b:
                 mushroom.generate_colors()
+            if event.key == pygame.K_s:
+                pygame.image.save(screen, f"saved_mushrooms/mushroom_{time.time()}.png")
         if pygame.mouse.get_pressed()[0]:
             mushroom = Mushroom()
